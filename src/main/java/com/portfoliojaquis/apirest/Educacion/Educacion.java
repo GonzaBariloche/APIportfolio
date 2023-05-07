@@ -1,4 +1,4 @@
-package com.portfoliojaquis.apirest.Person;
+package com.portfoliojaquis.apirest.Educacion;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Person {
+public class Educacion {
     @Id
     @GeneratedValue
     private Integer id;
