@@ -8,7 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -33,5 +37,38 @@ public class EducacionController {
     public void createEducacion(@RequestBody Educacion educacion) 
     {
     educacionService.createEducacion(educacion);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateEducacion(@PathVariable(value = "id") Integer educacionId, @RequestBody Educacion educacionDetails) {
+        Educacion educacion = educacionService.findById(educacionId);
+    
+        if (educacion == null) {
+            return ResponseEntity.notFound().build();
+        }
+    
+        educacion.setSchool(educacionDetails.getSchool());
+        educacion.setTitle(educacionDetails.getTitle());
+        educacion.setImg(educacionDetails.getImg());
+        educacion.setCareer(educacionDetails.getCareer());
+        educacion.setStart(educacionDetails.getStart());
+        educacion.setEnd(educacionDetails.getEnd());
+    
+        educacionService.updateEducacion(educacion);
+    
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteEducacion(@PathVariable(value = "id") Integer educacionId) {
+        Educacion educacion = educacionService.findById(educacionId);
+    
+        if (educacion == null) {
+            return ResponseEntity.notFound().build();
+        }
+    
+        educacionService.deleteEducacion(educacionId);
+    
+        return ResponseEntity.ok().build();
     }
 }
