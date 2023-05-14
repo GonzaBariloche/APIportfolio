@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -71,4 +72,16 @@ public class EducacionController {
     
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Educacion> getEducacionById(@PathVariable Integer id) {
+        Educacion educacion = educacionService.findById(id);
+        if (educacion != null) {
+            return ResponseEntity.ok(educacion);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+
 }
