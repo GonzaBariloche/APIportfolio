@@ -1,0 +1,10 @@
+com\portfoliojaquis\apirest\Educacion\Educacion.class
+com\portfoliojaquis\apirest\Educacion\EducacionRepository.class
+com\portfoliojaquis\apirest\Person\PersonController.class
+com\portfoliojaquis\apirest\Educacion\EducacionController.class
+com\portfoliojaquis\apirest\Person\PersonRepository.class
+com\portfoliojaquis\apirest\Person\Person.class
+com\portfoliojaquis\apirest\Person\PersonService.class
+com\portfoliojaquis\apirest\WebConfig.class
+com\portfoliojaquis\apirest\Educacion\EducacionService.class
+com\portfoliojaquis\apirest\ApirestApplication.class
